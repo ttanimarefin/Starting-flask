@@ -10,7 +10,19 @@ def home():
 def about():
     return render_template('about.html')
 
-app.run(debug=True)
+#replay  name
+@app.route('/tune/<string:name>')
+def tune(name):
+    return "hello,"+name
+
+
+@app.route('/users/<string:name>/<int:id>')
+def user(name,id):
+    return "hello," +name+ ", your id:" + str(id)
+
+
+app.run(debug=True,port=8080)
+
 
 
 
