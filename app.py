@@ -1,6 +1,18 @@
 from flask import Flask,render_template
 app = Flask(__name__)
 
+all_posts = [
+    {
+        'title':'Post 1',
+        'content' : 'This is the content of  post1',
+        'author':'Tanim'
+    },
+    {
+        'title':'Post 2',
+        'content' : 'This is the content of  post2',
+        
+    }
+]
 @app.route('/')
 @app.route('/home')
 def home():
@@ -9,6 +21,11 @@ def home():
 @app.route('/about')
 def about():
     return render_template('about.html')
+
+@app.route('/post')
+@app.route('/')
+def posts():
+    return render_template('posts.html',posts=all_posts)
 
 #replay  name
 @app.route('/tune/<string:name>')
