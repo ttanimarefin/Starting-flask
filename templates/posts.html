@@ -30,6 +30,8 @@
         {% endif %}
 
         <p>{{ post.content }}</p>
+        <a href='/posts/delete/{{post.id}}'>Delete</a>
+        <hr>
     {% endfor %}
 
 {%endblock%}
