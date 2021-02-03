@@ -11,17 +11,34 @@
 <h1>This is post page</h1>
 <hr>
   <h2>Create New BlogPost:</h2>
-    <form action='/posts' method='POST'>
-       Title: <input type='text' name='title' id='title'>
-        <br>
-        Author:<input type='text' name='author' id='author'>
-        <br>
-       Post:<input type='text' name='content' id='content'>
-        <br>
-       <input type='submit' value='Post'>
-    </form>
+    
+       
+<form>
+<form action='/posts' method='POST'>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Title:</label>
+    <input type="text" class="form-control" placeholder="Enter title" name='title' id='title'>
+  </div>
+   <div class="form-group">
+    <label for="exampleFormControlInput1">Author:</label>
+    <input type="text" class="form-control" placeholder="Enter author" name='author' id='author'>
+  </div>
+  
+  
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Content:</label>
+    <textarea class="form-control" input type='text' name='content' id='content' rows="3"></textarea>
+  </div>
+
+  <div class="form-group">
+    
+      <input class="btn btn-primary" type='submit' value='Post'>
+  </div>
+  
+</form>
 <hr>
     {% for post in posts %}
+       <br>
        <h2>{{ post.title }}</h2>
        {%if post.author%}
             <small>Written by {{post.author}} on  {{post.date_posted}} </small>
@@ -29,10 +46,11 @@
             <small>Written by unknown on {{post.date_posted}}</small>
         {% endif %}
         <br>
+        <br>
         <p>{{ post.content }}</p>
         <a class="btn btn-danger" href='/posts/delete/{{post.id}}'>Delete</a>
-        <a lass="btn btn-primary" href='/posts/edit/{{post.id}}'>Edit</a>
-        <hr>
+        <a class="btn btn-primary" href='/posts/edit/{{post.id}}'>Edit</a>
+<hr>
     {% endfor %}
 
 {%endblock%}
